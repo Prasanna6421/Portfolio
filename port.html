@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Frontend Developer</title>
+  <meta name="description" content="Portfolio of an aspiring Front-End Developer — projects, skills and contact." />
+  <style>
+    :root{
+      --bg:#0f1724; /* deep charcoal */
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4; /* teal */
+      --glass: rgba(255,255,255,0.03);
+      --radius:14px;
+      --max:1100px;
+      --gap:18px;
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    
+    .avatar img {
+  width: 160px;       /* adjust size */
+  height: 160px;      /* keep equal for circle */
+  border-radius: 16px; /* makes it circular */
+  object-fit: cover;  /* crops image nicely */
+  display: block;
+  margin: 0 auto;     /* center inside div */
+}
+    
+.btn:hover{
+background-color: #b7e1e1;
+animation:step-end 1s;
+transition: 1s;
+} 
+
+
+
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#071023 0%, var(--bg) 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px 20px;
+      display:flex;justify-content:center;
+    }
+    .wrap{width:100%;max-width:var(--max)}
+
+    /* NAV */
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .brand h1{font-size:16px;margin:0}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600}
+    nav a:hover{color:var(--accent)}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:center;margin-bottom:28px}
+    .card{background:linear-gradient(180deg,var(--card), rgba(6,9,16,0.4));padding:22px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6)}
+    .intro h2{margin:0 0 6px;font-size:28px}
+    .intro p{margin:0;color:var(--muted)}
+    .cta{display:flex;gap:12px;margin-top:14px}
+    .btn{background:var(--accent);border:none;padding:10px 14px;border-radius:10px;color:#021018;font-weight:700;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .profile{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+    .avatar{width:160px;height:160px;border-radius:18px;background:linear-gradient(135deg,#1e293b, #0f1724);display:flex;align-items:center;justify-content:center;font-size:36px}
+    .skills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+    .pill{background:var(--glass);padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:600;font-size:13px}
+
+    /* SECTIONS */
+    section{margin-bottom:24px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+    .project{padding:16px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .project h3{margin:0 0 8px;font-size:16px}
+    .project p{margin:0;color:var(--muted);font-size:14px}
+
+    .about{display:flex;gap:18px;align-items:flex-start}
+    .about p{color:var(--muted);margin:0}
+
+    /* FOOTER / CONTACT */
+    .contact-form{display:flex;flex-direction:column;gap:10px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:8px;color:inherit}
+    textarea{min-height:110px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:560px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .avatar{width:128px;height:128px}
+      body{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">FP</div>
+        <div>
+          <h1>Front-End Portfolio</h1>
+          <div style="font-size:12px;color:var(--muted)">Prasanna R• Aspiring Front-End Developer</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="card intro">
+        <h2>Hi — I'm Prasanna Venkatesh R</h2>
+        <p>I’m Prasanna Venkatesh, a Front-End Developer passionate about building clean, responsive, and user-friendly web experiences.</p>
+
+        <div class="cta">
+          <a class="btn" href="#contact">Hire Me</a>
+          <a class="btn ghost" href="#projects">See Projects</a>
+        </div>
+
+        <div style="margin-top:18px;color:var(--muted)">
+          <strong>Location:</strong> Trichirapalli · <strong>Open to:</strong> Front-End Roles
+        </div>
+
+      </div>
+
+      <aside class="card profile">
+        <div class="avatar"> <img src="/portflio/pprt_files/img_recent.jpg" alt="Prasanna Venkatesh R"></div>
+        <div style="font-weight:700">Prasanna Venkatesh R</div>
+        <div style="color:var(--muted);font-size:14px">Frontend Developer • HTML • CSS • JavaScript</div>
+        <div class="skills" aria-hidden>
+          <div class="pill">HTML</div>
+          <div class="pill">CSS</div>
+          <div class="pill">JavaScript</div>
+          <div class="pill">Bootstrap</div>
+          <div class="pill">Java</div>
+        </div>
+        <a class="btn" href="pprt_files/16925 cv.pdf" download>Download Resume</a>
+      </aside>
+    </section>
+
+    <section id="projects">
+      <h3 style="margin:0 0 12px">Selected Projects</h3>
+      <div class="grid">
+      
+        <article class="project">
+          <h3>CRUD Operation</h3>
+          <p>Developed a CRUD web app to efficiently add, edit, remove, and persist to localStorage.</p>
+          <div style="margin-top:10px"><a href=" https://prasanna6421.github.io/CRUD_Operation/" style="color:var(--accent);text-decoration:none">View →</a></div>
+        </article>
+
+        <article class="project">
+          <h3>Eco_Glow</h3>
+          <p>Product grid with responsive breakpoints and lightweight CSS animations. Focus on performance and accessibility.</p>
+          <div style="margin-top:10px"><a href="https://prasanna6421.github.io/Eco_Glow/" style="color:var(--accent);text-decoration:none">View →</a></div>
+        </article>
+      
+        <article class="project">
+          <h3>Mangoe_Magic</h3>
+          <p>Designed a responsive website for a juice shop displaying pricing and contact details</p>
+          <div style="margin-top:10px"><a href="https://prasanna6421.github.io/Mango_Magic/" style="color:var(--accent);text-decoration:none">View →</a></div>
+        </article>
+      
+       
+    
+    
+    
+    </div>
+    </section>
+
+    <section id="skills">
+      <h3 style="margin:0 0 12px">Skills</h3>
+      <div class="card" style="display:flex;gap:18px;flex-wrap:wrap">
+        <div style="min-width:220px">
+          <h4 style="margin:0 0 8px">Languages & Front-End</h4>
+          <div class="pill">HTML5</div> <div class="pill">CSS3(Web Development Concepts)</div> <div class="pill">JavaScript (ES6+)</div>
+        </div>
+        <div style="min-width:220px">
+          <h4 style="margin:0 0 8px">Frameworks & Libraries</h4>
+          <div class="pill">Bootstrap</div> 
+        </div>
+        <div style="min-width:220px">
+          <h4 style="margin:0 0 8px">Web Development Concepts</h4>
+          <div class="pill">Responsive Web Design</div> <div class="pill">DOM Manipulation</div> <div class="pill">localStorage</div>
+        </div>
+        <div style="min-width:220px">
+          <h4 style="margin:0 0 8px">Database</h4>
+          <div class="pill"> MySQL</div> <div class="pill">RDBMS</div>
+        </div>
+        <div style="min-width:220px">
+          <h4 style="margin:0 0 8px">Tools & Design:</h4>
+          <div class="pill">Microsoft Excel</div> <div class="pill">GitHub</div> <div class="pill">Canva</div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section id="about">
+      <h3 style="margin:0 0 12px">About Me</h3>
+      <div class="card about">
+        <div style="flex:1">
+          <p>Junior Front-End Developer skilled in HTML, CSS (Flexbox, Grid, Transitions), JavaScript, Java, and Bootstrap. Experienced in building responsive and interactive web applications, including an Income & Expense Tracker, To-Do List App, Mango Magic Juice Shop website, and EcoGlow e-commerce site. Strong foundation in DOM manipulation, localStorage, and modern CSS layout techniques, with a focus on delivering functional, responsive, and user-friendly web solutions..</p>
+        </div>
+        <div style="width:220px">
+          <div style="font-weight:700;margin-bottom:8px">Contact</div>
+          <div style="color:var(--muted)">Email: <a href="sriprasanna642001@gmail.com" style="color:var(--accent);text-decoration:none">sriprasanna642001@gmail.com</a></div>
+          <div style="color:var(--muted)">Mobile No: <a href="7010513353" style="color:var(--accent);text-decoration:none">7010513353</a></div>
+          
+          <div style="color:var(--muted);margin-top:8px">Location: Trichirapalli, TamilNadu</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h3 style="margin:0 0 12px">Contact</h3>
+      <div class="card">
+        <form class="contact-form" onsubmit="handleContact(event)">
+          <input id="name" placeholder="Your name" required />
+          <input id="email" type="email" placeholder="Your email" required />
+          <textarea id="message" placeholder="Message" required></textarea>
+          <div style="display:flex;gap:10px">
+            <button class="btn" type="submit">Send</button>
+            <a class="btn ghost" href="mailto:you@example.com">Email me</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer style="text-align:center;color:var(--muted);margin-top:20px">Built by prasanna</footer>
+  </main>
+
+  <script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+
+    function handleContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!message){ alert('Please fill all fields'); return }
+      // For demo: open mail client with prefilled content
+      const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+      const body = encodeURIComponent(message + '\n\n--\n' + name + '\n' + email);
+      window.location.href = `mailto:you@example.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
