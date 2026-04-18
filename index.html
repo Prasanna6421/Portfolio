@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio — Frontend Developer</title>
+  <meta name="description" content="Portfolio of an aspiring Front-End Developer — projects, skills and contact." />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#06b6d4;
+      --accent2:#3b82f6;
+      --glass: rgba(255,255,255,0.05);
+      --radius:16px;
+      --max:1100px;
+      --gap:22px;
+      font-family: 'Inter', system-ui, sans-serif;
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background: radial-gradient(circle at top left, #0a1123, var(--bg));
+      color:#e6eef6;
+      line-height:1.6;
+      display:flex;justify-content:center;
+      padding:40px 20px;
+      overflow-x:hidden;
+    }
+    ::-webkit-scrollbar{width:8px}
+    ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:4px}
+
+    .wrap{width:100%;max-width:var(--max)}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{
+      width:52px;height:52px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;
+      color:#021018;
+      box-shadow:0 0 15px rgba(6,182,212,0.6);
+      animation:floatLogo 3s ease-in-out infinite;
+    }
+    @keyframes floatLogo{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-4px)}
+    }
+    .brand h1{font-size:18px;margin:0}
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:22px;
+      font-weight:600;
+      position:relative;
+    }
+    nav a::after{
+      content:"";
+      position:absolute;
+      width:0%;
+      height:2px;
+      left:0;bottom:-4px;
+      background:var(--accent);
+      transition:width .3s;
+    }
+    nav a:hover{color:var(--accent)}
+    nav a:hover::after{width:100%}
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:36px;
+      align-items:center;
+      margin-bottom:50px;
+      animation:fadeInUp 1s ease both;
+    }
+    @keyframes fadeInUp{
+      from{opacity:0;transform:translateY(40px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+    .card{
+      background:linear-gradient(180deg,var(--card),rgba(6,9,16,0.5));
+      padding:26px;
+      border-radius:var(--radius);
+      box-shadow:0 6px 25px rgba(2,6,23,0.6);
+      border:1px solid rgba(255,255,255,0.05);
+      transition:all .4s ease;
+    }
+    .card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 8px 30px rgba(6,182,212,0.2);
+    }
+.intro h2 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  background: linear-gradient(90deg, #06b6d4, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+    .intro p{color:var(--muted)}
+    .cta{display:flex;gap:14px;margin-top:20px}
+    .btn{
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border:none;
+      padding:10px 18px;
+      border-radius:10px;
+      color:#021018;
+      font-weight:700;
+      cursor:pointer;
+      transition:all .3s ease;
+      text-decoration:none;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 0 15px rgba(59,130,246,0.6);
+    }
+    .btn.ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.08);
+      color:var(--muted);
+    }
+    .btn.ghost:hover{
+      border-color:var(--accent);
+      color:var(--accent);
+    }
+
+    /* PROFILE */
+    .profile{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+    .avatar img{
+      width:160px;height:160px;border-radius:18px;object-fit:cover;
+      border:3px solid var(--accent);
+      box-shadow:0 0 20px rgba(6,182,212,0.2);
+    }
+    .skills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .pill{
+      background:rgba(255,255,255,0.05);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+      transition:background .3s,color .3s;
+    }
+    .pill:hover{
+      background:var(--accent);
+      color:#021018;
+    }
+
+    /* GRID / PROJECTS */
+    section{margin-bottom:40px;}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+    .project{
+      padding:18px;
+      border-radius:14px;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.06);
+      transition:all .3s ease;
+    }
+    .project:hover{
+      background:rgba(6,182,212,0.08);
+      transform:translateY(-4px);
+    }
+    .project h3{margin:0 0 6px;color:#e6faff}
+    .project p{margin:0 0 8px;color:var(--muted);font-size:14px}
+
+    /* ABOUT / CONTACT */
+    .about{display:flex;gap:22px;align-items:flex-start}
+    .about p{color:var(--muted)}
+    input,textarea{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.1);
+      padding:10px;
+      border-radius:8px;
+      color:inherit;
+      width:100%;
+    }
+    textarea{min-height:110px}
+    .contact-form{display:flex;flex-direction:column;gap:10px}
+    footer{text-align:center;color:var(--muted);margin-top:40px;font-size:14px;}
+
+    /* RESPONSIVE */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:600px){
+      nav{display:none}
+      .grid{grid-template-columns:1fr}
+      .avatar img{width:128px;height:128px}
+      body{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">PV</div>
+        <div>
+          <h1>Front-End Portfolio</h1>
+          <div style="font-size:12px;color:var(--muted)">Prasanna Venkatesh • Front-End Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+     <div class="card intro">
+  <h2>Hello, I’m Prasanna 👋</h2>
+  <p>A passionate Front-End Developer building responsive, dynamic, and user-focused web experiences with HTML, CSS, JavaScript, and Bootstrap.</p>
+  <div class="cta">
+    <a class="btn" href="#contact">Hire Me</a>
+    <a class="btn ghost" href="#projects">See Projects</a>
+  </div>
+
+  <div style="margin-top:20px;color:var(--muted)">
+    <strong>📍 Trichy</strong> • 
+    <a href="mailto:sriprasanna642001@gmail.com" style="text-decoration:none; color:var(--accent)">✉ Email</a> • 
+    <a href="tel:+917010513353" style="text-decoration:none; color:var(--accent)">📞 Call</a> • 
+    <a href="https://github.com/Prasanna6421" target="_blank" style="text-decoration:none; color:var(--accent)">💻 GitHub</a> • 
+    <a href="https://www.linkedin.com/in/prasanna-venkatesh-45590036b/" target="_blank" style="text-decoration:none; color:var(--accent)">🔗 LinkedIn</a>
+  </div>
+</div>
+
+
+      <aside class="card profile">
+        <div class="avatar"><img src="pprt_files/img_rec.jpg" alt="Prasanna Venkatesh"></div>
+        <div style="font-weight:700;font-size:18px">Prasanna Venkatesh R</div>
+        <div style="color:var(--muted);font-size:14px">Front-End Developer • HTML • CSS • JavaScript</div>
+        <div class="skills">
+          <div class="pill">HTML</div><div class="pill">CSS</div><div class="pill">JavaScript</div>
+          <div class="pill">Bootstrap</div><div class="pill">React</div><div class="pill">Mysql</div>
+        </div>
+        <a class="btn" href="pprt_files/_Prasanna_Venkatesh_Frontend_Developer_Resume.pdf.pdf" download>📄 Download Resume</a>
+      </aside>
+    </section>
+
+    <section id="projects">
+      <h3 style="margin-bottom:12px;">🚀 Selected Projects</h3>
+      <div class="grid">
+
+
+        <article class="project">
+          <h3>Prescripto</h3>
+          <p>Prescripto connects patients with doctors for easy, secure appointment booking through a responsive platform..</p>
+          <a href="https://prescripto-ox4q-r6snq03sq-prasanna6421s-projects.vercel.app/" target="_blank" style="color:var(--accent);text-decoration:none;">View →</a>
+        </article>
+
+        <article class="project">
+          <h3>BeautySalon</h3>
+          <p>Modern responsive salon booking web app built with React, featuring smooth navigation, services display, and appointment scheduling system.</p>
+          <a href="https://prasanna6421.github.io/BeautySalon/" target="_blank" style="color:var(--accent);text-decoration:none;">View →</a>
+        </article>
+
+        <article class="project">
+          <h3>E-Books</h3>
+          <p>An interactive eBook web app featuring carousel display, genre-based filtering, live search, and smooth UI for reading and downloading books.</p>
+          <a href="https://prasnna.neocities.org/E-Book/demo" style="color:var(--accent);text-decoration:none;">View →</a>
+        </article>
+
+        <article class="project">
+          <h3>DevProfiles Hub</h3>
+          <p>A front-end web application built with HTML, CSS, JS, and Bootstrap to display developer profiles with smooth UI and API integration.</p>
+          <a href="https://prasnna.neocities.org/%20DevProfiles%20Hub%20/" target="_blank" style="color:var(--accent);text-decoration:none;">View →</a>
+        </article>
+
+        <article class="project">
+          <h3>Dynamic Kanban</h3>
+          <p>A responsive profile management web app with add, update, delete, search, sort, and PDF export using Bootstrap and local storage.</p>
+          <a href="https://prasanna6421.github.io/Dynamic-Kanban/" target="_blank" style="color:var(--accent);text-decoration:none;">View →</a>
+        </article>
+
+        <article class="project">
+          <h3>Mango Magic</h3>
+          <p>Designed a responsive juice shop website with interactive sections.</p>
+          <a href="https://prasanna6421.github.io/Mango_Magic/" target="_blank" style="color:var(--accent);text-decoration:none;">View →</a>
+        </article>
+      </div>
+    </section>
+
+<section id="skills">
+  <h3 style="margin-bottom:12px;">⚙️ Skills</h3>
+  <div class="card" style="display:flex; flex-wrap:wrap; column-gap:18px; row-gap:25px;">
+    <div style="min-width:220px;">
+      <h4 style="margin-bottom:8px;">Languages & Front-End</h4>
+      <div class="pill" style="margin-bottom:8px;">HTML5</div>
+      <div class="pill" style="margin-bottom:8px;">CSS3</div>
+      <div class="pill" style="margin-bottom:8px;">JavaScript (ES6+)</div>
+    </div>
+
+    <div style="min-width:220px;">
+      <h4 style="margin-bottom:8px;">Frameworks</h4>
+      <div class="pill" style="margin-bottom:8px;">Bootstrap</div>
+      <div class="pill" style="margin-bottom:8px;">React</div>
+    </div>
+
+    <div style="min-width:220px;">
+      <h4 style="margin-bottom:8px;">Concepts</h4>
+      <div class="pill" style="margin-bottom:8px;">Responsive Design</div>
+      <div class="pill" style="margin-bottom:8px;">DOM Manipulation</div>
+      <div class="pill" style="margin-bottom:8px;">localStorage</div>
+    </div>
+
+    <div style="min-width:220px;">
+      <h4 style="margin-bottom:8px;">Database</h4>
+      <div class="pill" style="margin-bottom:8px;">MySQL</div>
+      <div class="pill" style="margin-bottom:8px;">RDBMS</div>
+    </div>
+
+    <div style="min-width:220px;">
+      <h4 style="margin-bottom:8px;">Tools</h4>
+      <div class="pill" style="margin-bottom:8px;">GitHub</div>
+      <div class="pill" style="margin-bottom:8px;">VS Code</div>
+      <div class="pill" style="margin-bottom:8px;">Canva</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience">
+  <h3 style="margin-bottom:12px;">💼 Experience</h3>
+  <div class="card about">
+    <div style="flex:1">
+      <h4>System Engineer — Infosys</h4>
+      <p>February 2025 - July 2025</p>
+      <ul style="color:var(--muted);margin-left:18px;">
+        <li>Developed and enhanced 15+ responsive web pages using HTML5, CSS3 (Flexbox, Grid, Transitions),JavaScript (ES6+),Bootstrap 5 and Reactjs to improve user experience and performance.</li>
+        <li>Collaborated with design and backend teams to integrate 10+ RESTful APIs and ensure seamless front-end functionality.</li>
+        <li>Implemented Bootstrap components for mobile-first, cross-browser compatible layouts</li>
+        <li>Optimized page loading times by 25% and enhanced UI consistency across various screen sizes.</li>
+        <li>Contributed to the development of 8+ reusable UI components and documented project features.</li>
+        <li>Participated in 20+ code reviews, managed version control with Git, and contributed to agile sprint planning to deliver high-quality features on time</li>
+      </ul>
+
+      <h4 style="margin-top:20px;">Project Coordinator — Sriprasanna Engg & Fabrication Works</h4>
+      <p>May 2022 – January 2025</p>
+      <ul style="color:var(--muted);margin-left:18px;">
+        <li>Managed budgets for 10+ projects (₹2–10 lakhs), cutting cost overruns by 15%.</li>
+        <li>Led on-site operations ensuring 100% timely project delivery.</li>
+        <li>Maintained 30+ audit and documentation records improving compliance.</li>
+        <li>Handled 15+ vendor and client escalations improving resolution speed by 20%.</li>
+        <li>•Created and upheld 30+ business documents, proposals, and reports using MS Word, Excel, and Canva, thereby improving documentation 
+efficiency.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h3 style="margin-bottom:12px;">📬 Contact</h3>
+  <div class="card">
+    <form class="contact-form" onsubmit="handleContact(event)">
+      <input id="name" placeholder="Your name" required />
+      <input id="email" type="email" placeholder="Your email" required />
+      <textarea id="message" placeholder="Message" required></textarea>
+      <div style="display:flex;gap:10px">
+        <button class="btn" type="submit">Send</button>
+        <a class="btn ghost" href="mailto:sriprasanna642001@gmail.com">Email Me</a>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>© 2025 Prasanna Venkatesh — Designed & Developed with Passion</footer>
+</main>
+
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(link=>{
+    link.addEventListener('click', e=>{
+      const href=link.getAttribute('href');
+      if(href.startsWith('#')){
+        e.preventDefault();
+        document.querySelector(href)?.scrollIntoView({behavior:'smooth'});
+      }
+    })
+  });
+
+  function handleContact(e){
+    e.preventDefault();
+    const name=document.getElementById('name').value.trim();
+    const email=document.getElementById('email').value.trim();
+    const message=document.getElementById('message').value.trim();
+    if(!name||!email||!message){alert('Please fill all fields');return;}
+    const subject=encodeURIComponent('Portfolio inquiry from '+name);
+    const body=encodeURIComponent(message+'\n\n--\n'+name+'\n'+email);
+    window.location.href=`mailto:sriprasanna642001@gmail.com?subject=${subject}&body=${body}`;
+  }
+</script>
+</body>
+</html>
